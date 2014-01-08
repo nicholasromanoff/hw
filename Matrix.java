@@ -14,30 +14,31 @@ public class Matrix {
 
     //default constructor intializes a DEFAULT_SIZE*DEFAULT_SIZE matrix
     public Matrix() {
-
+        _matrix = new Object[DEFAULT_SIZE][DEFAULT_SIZE];
     }
 
 
     //constructor intializes an a*a matrix
     public Matrix( int a ) {
-
+        _matrix = new Object[a][a];
     }
 
 
     //return size of this matrix, where size is 1 dimension
     private int size() {
-
+        return _matrix.length;
     }
 
 
     //return the item at the specified row & column   
     private Object get( int r, int c ) {
-
+        return _matrix[r - 1][c - 1];
     }
 
 
     //return true if this location is empty, false otherwise
     private boolean isEmpty( int r, int c ) {
+       return 
 
     }
 
