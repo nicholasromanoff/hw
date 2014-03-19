@@ -1,0 +1,118 @@
+public class LinkedList {
+
+    // instance variables
+    private Node head;
+
+    // constructor
+    public LinkedList() {
+	// not actually necessary
+	// class variables by default refer to null
+	head = null;
+    }
+
+    // methods
+
+    public void add(String s) {
+	Node temp = new Node(s);
+	temp.setNext(head);
+	head = temp;
+    }
+
+    public String toString() {
+	Node temp = head;
+	String s; 
+	s = head.getData() + " --> ";
+	while (temp.getNext() != null) {
+		s += temp.getNext() + " --> ";
+		temp = temp.getNext();
+	}
+	s = s.substring(0,s.length() - 4);
+	return s;
+    }
+
+	public void add(int i, String s) {
+		if (i == 0) {
+			add(s);
+		}
+		else {
+			Node n = new Node(s);
+			Node temp = head;
+			i--;
+			while (i > 0) {
+				temp = temp.getNext();
+				i--;
+			}
+			n.setNext(temp.getNext());
+			temp.setNext(n);
+		}
+	}
+
+    // driver
+
+    public static void main(String[] args) {
+	LinkedList l = new LinkedList();
+	l.add("A");
+	l.add("B");
+	l.add("C");
+	l.add("D");
+	l.add("E");
+	System.out.println(l);
+    }
+}
+
+public class Node {
+    private String data;
+    private Node next;
+
+    public Node(String s) {
+	data = s;
+    }
+   
+    public void setData(String s) {
+	data = s;
+    }
+
+    public String getData() {
+	return data;
+    }
+
+    public void setNext(Node n) {
+	next = n;
+    }
+
+    public Node getNext() {
+	return next;
+    }
+
+    public String toString() {
+	return data;
+    }
+/*
+    public static void main(String[] args) {
+	node n1;
+	n1 = new Node("Tommy");
+	System.out.println(n1);
+	node n2 = new Node("Sammy");
+	System.out.println(n2);
+	n1.setNext(n2);
+	System.out.println(n1.getNext());
+	n2.setNext(new Node("Clyde"));
+	System.out.println(n1.getNext().getNext());
+	System.out.println(n2.getNext());
+	/* Example of removing a node:
+	n1.setNext(n1.getNext().getNext());
+	System.out.println("After removing the second node");
+	System.out.println(n1);
+	System.out.println(n1.getNext());
+	System.out.println(n1.getNext().getNext());
+	
+	System.out.println("With a loop:");
+	Node last = n1.getNext().getNext();
+	last.setNext(n1);
+	System.out.println(n1.getNext());
+	System.out.println(n1.getNext().getNext());
+	System.out.println(n1.getNext().getNext().getNext());
+	System.out.println(n1.getNext().getNext().getNext.getNext());
+    }
+*/
+}
